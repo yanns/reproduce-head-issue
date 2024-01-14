@@ -1,2 +1,2 @@
 # reproduce-head-issue
-Reproduce head issue
+Reproduce HEAD issue
