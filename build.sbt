@@ -9,7 +9,7 @@ lazy val root = (project in file("."))
 lazy val httpServer = (project in file("apps/http-server"))
   .settings(
     name := "http-server",
-    libraryDependencies ++= List(akkaHttp, akkaStream, typesafeConfig),
+    libraryDependencies ++= List(akkaHttp, akkaStream, typesafeConfig, logback, akkaSlf7j),
   )
 
 lazy val featureTests = (project in file("feature-tests"))

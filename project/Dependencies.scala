@@ -10,4 +10,6 @@ object Dependencies {
   lazy val akkaHttp = "com.typesafe.akka" %% "akka-http" % akkaHttpVersion
   lazy val typesafeConfig = "com.typesafe" % "config" % "1.4.3"
   lazy val cornichon = "com.github.agourlay" %% "cornichon-scalatest" % cornichonVersion % Test
+  lazy val logback = "ch.qos.logback" % "logback-classic" % "1.4.14"
+  lazy val akkaSlf7j = "com.typesafe.akka" %% "akka-slf4j" % akkaVersion
 }
