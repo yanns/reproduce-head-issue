@@ -8,7 +8,15 @@ import org.http4s.implicits.http4sLiteralsSyntax
 object Main extends IOApp.Simple {
   private def headRequest(client: Client[IO]): IO[Unit] = {
     val request = Request[IO](method = HEAD, uri = uri"http://localhost:8080/hello")
-    client.run(request).use(r => IO.println(r.status))
+    client.run(request).use { http4sResp =>
+      http4sResp
+        .bodyText
+        .compile
+        .string
+        .map { decodedBody =>
+          IO.println(http4sResp.status + " " + decodedBody)
+        }
+    }
   }
 
   val run: IO[Unit] = EmberClientBuilder
