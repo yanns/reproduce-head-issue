@@ -3,7 +3,7 @@ import Dependencies._
 Global / scalaVersion := "2.13.12"
 
 lazy val root = (project in file("."))
-  .aggregate(httpServer, featureTests)
+  .aggregate(httpServer, featureTests, ember, blaze)
 
 
 lazy val httpServer = (project in file("apps/http-server"))
@@ -23,5 +23,12 @@ lazy val ember = (project in file("ember"))
   .settings(
     name := "ember",
     libraryDependencies += http4sEmberClient,
+    Compile / run / fork := true
+  )
+
+lazy val blaze = (project in file("blaze"))
+  .settings(
+    name := "blaze",
+    libraryDependencies += http4sBlazeClient,
     Compile / run / fork := true
   )

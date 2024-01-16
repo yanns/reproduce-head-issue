@@ -13,5 +13,5 @@ object Dependencies {
   lazy val logback = "ch.qos.logback" % "logback-classic" % "1.4.14"
   lazy val akkaSlf7j = "com.typesafe.akka" %% "akka-slf4j" % akkaVersion
   lazy val http4sEmberClient = "org.http4s" %% "http4s-ember-client" % "0.23.25"
-  lazy val http4sBlazeClient = "org.http4s" %% "http4s-blaze-client" % "0.23.25"
+  lazy val http4sBlazeClient = "org.http4s" %% "http4s-blaze-client" % "0.23.16"
 }

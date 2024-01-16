@@ -1,8 +1,8 @@
 import cats.effect.{IO, IOApp}
 import org.http4s.Method.HEAD
 import org.http4s.Request
+import org.http4s.blaze.client.BlazeClientBuilder
 import org.http4s.client.Client
-import org.http4s.ember.client.EmberClientBuilder
 import org.http4s.implicits.http4sLiteralsSyntax
 
 object Main extends IOApp.Simple {
@@ -16,11 +16,11 @@ object Main extends IOApp.Simple {
         .flatMap { decodedBody =>
           IO.println(http4sResp.status + " " + decodedBody)
         }
+
     }
   }
 
-  val run: IO[Unit] = EmberClientBuilder
-    .default[IO]
-    .build
+  val run: IO[Unit] = BlazeClientBuilder[IO]
+    .resource
     .use(client => headRequest(client))
 }
