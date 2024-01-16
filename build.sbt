@@ -18,3 +18,10 @@ lazy val featureTests = (project in file("feature-tests"))
     libraryDependencies += cornichon,
     testFrameworks += new TestFramework("com.github.agourlay.cornichon.framework.CornichonFramework")
   )
+
+lazy val ember = (project in file("ember"))
+  .settings(
+    name := "ember",
+    libraryDependencies += http4sEmberClient,
+    Compile / run / fork := true
+  )
